@@ -73,27 +73,50 @@ Django is a high-level Python web framework. We can do everything using CMD.
   ipconfig
   ```
 + `tasklist:` Display a list of the current running process.
-tasklist
+  ```cmd
+  tasklist
+  ```
 + `taskkill:` Terminates a running process.
-taskkill /pid [typepid]
+  ```cmd
+  taskkill /pid [typepid]
+  ```
 + `cls:` This command will clear the command prompt console.
-cls
+  ```cmd
+  cls
+  ```
 + `hostname:` This windows command displays the host name of the computer.
-hostname
+  ```cmd
+  hostname
+  ```
 + `chdir:` Displays the name of the current directory
-chdir
+  ```cmd
+  chdir
+  ```
 + `color:` Sets the default console foreground and background colors.
-color [background][foreground]
+  ```cmd
+  color [background][foreground]
+  ```
 + `comp:` Compares the contents of two files or sets of files.
-comp [file1] [file2]
+  ```cmd
+  comp [file1] [file2]
+  ```
 + `date:` Displays or sets the system date.
-date
+  ```cmd
+  date
+  ```
 + `exit:`Used to close the Command Prompt window or terminate the currently running script or batch file. 
-exit
+  
+  ```cmd
+  exit
+  ```
 + `fc:` Compares two files or sets of files, and displays the differences between them.
-fc [file] [file2]
+  ```cmd
+  fc [file] [file2]
+  ```
 + `erase:` Deletes one or more files.
-erase [file1][file2][....]
+  ```cmd
+  erase [file1][file2][....]
+  ```
 
 
 </details>
