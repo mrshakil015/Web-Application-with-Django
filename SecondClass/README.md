@@ -115,6 +115,6 @@ To send content back to the client's web browser we can used `HttpResponse`. It 
   ```cmd
   http://127.0.0.1:8000/home
   ```
-
+In this way we can create multiple function and urls.
 
 </details>
