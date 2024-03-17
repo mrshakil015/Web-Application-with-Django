@@ -21,3 +21,29 @@ Django framework have a build-in database named db.sqlite3. To manage our databa
 [Download SQLiteBrowser 32-bit Windows](https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.msi)
 
 </details>
+
+<details>
+<summary><b>How to Create Super User</b></summary>
+Creating a superuser in Django is essential for managing and maintaining the application, both during development and in production. Before using this feature, we must have migrated our project, otherwise the superuser database will not be created.
+
++ At first open the root folder.
++ Open command prompt.
++ Activate the virtual environment.
+  ```cmd
+    .\environmentname\Scripts\activate
+  ```
++ Navigate to our Django project directory. Using `cd`
+  ```cmd
+    cd directory_path
+  ```
++ Migrate project.
+  ```cmd
+    py manage.py migrate
+  ```
++ Create super user
+  ```cmd
+    py manage.py createsuperuser
+  ```
+
+
+</details>
