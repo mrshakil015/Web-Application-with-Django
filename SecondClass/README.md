@@ -69,6 +69,52 @@ Creating a superuser in Django is essential for managing and maintaining the app
   http://127.0.0.1:8000/admin/
   ```
 
+</details>
+
+<details>
+<summary><b>How to Display some text in web browser? Also add custom urls</b></summary>
+
+To send content back to the client's web browser we can used `HttpResponse`. It is a class used to generate HTTP responses. It's part of Django's HTTP handling framework.
+
++ After active our project. At first create a python script in our porject folder e.g. `views.py`
++ Import reqired class from django:
+  ```python
+  from django.shortcuts import HttpResponse
+  ```
++ Create a function:
+  ```python
+  def homePage(request):
+      return HttpResponse("Hello, Django!")
+  ```
++ To display this content into web browser we need to connect this function into `urls.py` script. For do this open `urls.py` scripts.<br>
+  Syntax:
+  ```python
+  from projectfoldername.scriptname import functionname
+  ```
+  Example:
+  ```python
+  from myProject.views import homePage
+  ```
++ Also add this function with `urlpatterns = []` list:
+  ```python
+  path('routename',functionname , name="functionname"),
+  ```
+  Example:
+  ```python
+  path('home',homePage , name="homepage"),
+  ```
++ After connect the url then run the project.
+  ```python
+  py manage.py runserver
+  ```
++ Copy and paste the local url into browser also add the route with the urls:
+  ```cmd
+  http://127.0.0.1:8000/routename
+  ```
+  Example:
+  ```cmd
+  http://127.0.0.1:8000/home
+  ```
 
 
 </details>
