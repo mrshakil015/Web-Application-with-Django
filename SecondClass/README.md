@@ -44,6 +44,31 @@ Creating a superuser in Django is essential for managing and maintaining the app
   ```cmd
     py manage.py createsuperuser
   ```
+  Enter user name:
+  ```cmd
+  Username: examplename
+  ```
+  Enter email address (it is optional):
+  ```cmd
+  Email address: example@gmail.com
+  ```
+  Enter Password:
+  ```cmd
+  Password: ******
+  ```
+  Enter same password again:
+  ```cmd
+  Password(again): ******
+  ```
++ Now we can login into our Django Admin page by running our django server.
+  ```cmd
+  python manage.py runserver
+  ```
++ Using Username and Password we can login our admin panel. This is the local domai:
+  ```cmd
+  http://127.0.0.1:8000/admin/
+  ```
+
 
 
 </details>
