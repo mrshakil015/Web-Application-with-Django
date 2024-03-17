@@ -36,7 +36,7 @@ Django is a high-level Python web framework. We can do everything using CMD.
   ```
 After run the server create a local server url. Copy url and paste on any browser. After paste if open this then server run properly.
 
-![image](.\images\runserver.png)
+![image](images/runserver.png)
 
 </details>
 
