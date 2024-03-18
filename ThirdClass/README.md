@@ -82,3 +82,5 @@ If we want to display any HTML template/page in our client browser. We need to u
   http://127.0.0.1:8000/home
   ```
 In this way we can create multiple function and urls.
+
+</details>
