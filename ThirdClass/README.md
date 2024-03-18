@@ -49,6 +49,36 @@ If we want to display any HTML template/page in our client browser. We need to u
     ```
 + Create a function into the `views.py` script.
     ```python
-    def homePage(request):
+    def home(request):
         return render(request, 'homepage.html')
     ```
++ To display this html template into web browser we need to connect this function into `urls.py` script. For do this open `urls.py` scripts.<br>
+  Syntax:
+  ```python
+  from projectfoldername.scriptname import functionname
+  ```
+  Example:
+  ```python
+  from myProject.views import home
+  ```
++ Also add this function with `urlpatterns = []` list:
+  ```python
+  path('routename',functionname , name="functionname"),
+  ```
+  Example:
+  ```python
+  path('home',home , name="home"),
+  ```
++ After connect the url then run the project.
+  ```python
+  py manage.py runserver
+  ```
++ Copy and paste the local url into browser also add the route with the urls:
+  ```cmd
+  http://127.0.0.1:8000/routename
+  ```
+  Example:
+  ```cmd
+  http://127.0.0.1:8000/home
+  ```
+In this way we can create multiple function and urls.
