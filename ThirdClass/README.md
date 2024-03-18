@@ -84,3 +84,30 @@ If we want to display any HTML template/page in our client browser. We need to u
 In this way we can create multiple function and urls.
 
 </details>
+
+<details>
+<summary><b>How to pass any content from Django into HTML template.</b></summary>
+
++ At first we need to do render process.
++ Then modified the function from `views.py` script.
++ Now we can pass the data using python dictionary. This is my dictionary:
+    ```python
+    tableDict = {
+            'cmpName': 'Google',
+            'cmpContact': '012342',
+            'country': 'USA',
+        }
+    ```
+    Add this dictionary into the function.
+    ```python
+    def home(request):
+    
+        tableDict = {
+            'cmpName': 'Google',
+            'cmpContact': '012342',
+            'country': 'USA',
+        }
+        return render(request, 'home.html',tableDict)
+    ```
+
+</details>
