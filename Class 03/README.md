@@ -86,7 +86,9 @@ In this way we can create multiple function and urls.
 </details>
 
 <details>
-<summary><b>How to pass any content from Django into HTML template.</b></summary>
+<summary><b>Pass content from Django views to HTML templates:</b></summary>
+
+To pass content from Django views to HTML templates, we typically use the Django template engine along with views.
 
 + At first we need to do render process.
 + Then modified the function from `views.py` script.
@@ -109,5 +111,24 @@ In this way we can create multiple function and urls.
         }
         return render(request, 'home.html',tableDict)
     ```
-
++ Create an HTML template file, such as `home.html`, where we'll render the content passed from the view. In the template, we can access the data passed from the `views.py` using the Django template language enclosed in double curly braces `{{ }}`.
+  ```html
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>My Template</title>
+    </head>
+    <body>
+        <h1>Company Name: {{ cmpName }}</h1>
+        <h1>Company Contact: {{ cmpContact }}</h1>
+        <h1>Country: {{ country }}</h1>
+    </body>
+    </html>
+  ```
++ Must be mapping the URL into `urls.py` scripts to view page.
+    ```python
+    urlpatterns = [
+        path('my-url/', my_view, name='my-view'),
+        ]
+    ```
 </details>
