@@ -7,12 +7,13 @@
 
 <details>
 <summary><b>Django App & Models:</b></summary>
- Django model is a Python class that represents a database table. Django models are used to define the structure of the data in your application and how it will be stored in the database.
+ Django model is a Python class that represents a database table. Django models are used to define the structure of the data in our application and how it will be stored in the database.
 
 Each attribute of a Django model class represents a database field, and the type of the attribute determines the type of the corresponding database column. Django provides built-in field types such as IntegerField, CharField, DateTimeField, etc., and you can also create custom field types if needed.
 
 ### Process of createing app and models:
 
++ First Create Project Directory and Virtual Environment
 + Activate Virtual Environment:
     ```cmd
     .\environmentName\Scripts\activate
