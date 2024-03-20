@@ -11,8 +11,12 @@
 Each attribute of a Django model class represents a database field, and the type of the attribute determines the type of the corresponding database column. Django provides built-in field types such as IntegerField, CharField, DateTimeField, etc., and you can also create custom field types if needed.
 
 ### Process of createing app and models:
+---
 
-+ First Create Project Directory and Virtual Environment
++ First Virtual Environment
+    ```cmd
+    python-m venv environmentName
+    ```
 + Activate Virtual Environment:
     ```cmd
     .\environmentName\Scripts\activate
@@ -63,7 +67,7 @@ Each attribute of a Django model class represents a database field, and the type
 
     admin.site.register(studentModel)
     ```
-+ Everytime, after creating model then we need to migrate our database:
++ Everytime, after creating model then we need to migrate our database. Otherwise error occured name `(no such table)`:
     ```cmd
     py manage.py makemigrations
     ```
