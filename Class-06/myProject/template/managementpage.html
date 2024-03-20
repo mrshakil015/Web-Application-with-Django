@@ -1,0 +1,21 @@
+{% extends 'master.html' %}
+
+
+{% block content %}
+    <h1>This is Management Page</h1>
+    <table id="customers">
+        <tr>
+          <th>Management ID</th>
+          <th>Management Name</th>
+        </tr>
+        
+        {% for i in std %}
+        <tr>
+            <td>{{i.managementid}}</td>
+            <td>{{i.managementname}}</td>
+          </tr>
+        {% endfor %}
+            
+    </table>
+{% endblock content %}
+    

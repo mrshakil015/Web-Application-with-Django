@@ -1,0 +1,23 @@
+{% extends 'master.html' %}
+
+
+{% block content %}
+    <h1>This is Teacher Page {{ message }}</h1>
+    <table id="customers">
+        <tr>
+          <th>Teacher ID</th>
+          <th>Teacher Name</th>
+          <th>Designation</th>
+        </tr>
+        
+        {% for i in std %}
+        <tr>
+            <td>{{i.teacherid}}</td>
+            <td>{{i.teachername}}</td>
+            <td>{{i.teacherdesignation}}</td>
+          </tr>
+        {% endfor %}
+            
+    </table>
+{% endblock content %}
+    
