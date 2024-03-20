@@ -5,8 +5,7 @@
 + Create & Register Models
 + Add Entity & Attributes
 
-<details>
-<summary><b>Django App & Models:</b></summary>
+## <b>Django App & Models:</b>
  Django model is a Python class that represents a database table. Django models are used to define the structure of the data in our application and how it will be stored in the database.
 
 Each attribute of a Django model class represents a database field, and the type of the attribute determines the type of the corresponding database column. Django provides built-in field types such as IntegerField, CharField, DateTimeField, etc., and you can also create custom field types if needed.
@@ -85,8 +84,3 @@ Each attribute of a Django model class represents a database field, and the type
     ```
 + If we want to view the data from DB SQLite Browser then open it and open the the database file from the project folder file name: `db.sqlite3`
 + From the table option in DB SQLite Browser  select tableName.
-
-
-
-
-</details>
