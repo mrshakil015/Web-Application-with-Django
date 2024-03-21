@@ -1,5 +1,9 @@
 # Class - 06
 
+## Topics:
++ Read Data
++ Display data on HTML Template
+
 ## Read Data From Model and Display
 
 + After Following the `Class-05` process then the next step is to fetch/read data model/database:
