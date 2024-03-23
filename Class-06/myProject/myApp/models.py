@@ -2,40 +2,42 @@ from django.db import models
 
 # Create your models here.
 class studentModel(models.Model):
-    roll=models.CharField(max_length=20)
-    name=models.CharField(max_length=50)
-    dept=models.CharField(max_length=50)
+    name= models.CharField(max_length=100)
+    rollno = models.CharField(max_length=30)
+    dept = models.CharField(max_length=30)
     
     def __str__(self):
-        return self.name +"-"+self.roll
-    
-class teacherModel(models.Model):
-    teacherid=models.CharField(max_length=20)
-    teachername=models.CharField(max_length=50)
-    teacherdesignation=models.CharField(max_length=50)
-    
-    def __str__(self):
-        return self.teachername +"-"+self.teacherid
+        return self.rollno+"-"+ self.name
 
-class staffModel(models.Model):
-    staffid=models.CharField(max_length=20)
-    staffname=models.CharField(max_length=50)
-    address=models.CharField(max_length=50)
+class teacherModel(models.Model):
+    teachername = models.CharField(max_length=50)
+    teacherid = models.CharField(max_length=20)
+    designation =models.CharField(max_length=50)
     
     def __str__(self):
-        return self.staffname +"-"+self.staffid
+        return self.teacherid+"-"+self.teachername
 
 class managementModel(models.Model):
-    managementid=models.CharField(max_length=20)
-    managementname=models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
+    managementid = models.CharField(max_length=20)
+    address =models.CharField(max_length=50)
     
     def __str__(self):
-        return self.managementname +"-"+self.managementid
+        return self.managementid+"-"+self.name
+
+class staffModel(models.Model):
+    staffname = models.CharField(max_length=50)
+    staffage = models.CharField(max_length=20)
+    address =models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.staffname+"-"+self.address
 
 class libraryModel(models.Model):
-    libraryid=models.CharField(max_length=20)
-    librarylocation=models.CharField(max_length=50)
+    libraryid = models.CharField(max_length=50)
+    librarytype = models.CharField(max_length=20)
     
     def __str__(self):
-        return self.libraryid +"-"+self.librarylocation
-
+        return self.libraryid+"-"+self.librarytype
+    
+    

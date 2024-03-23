@@ -1,12 +1,12 @@
 from django.contrib import admin
 from django.urls import path
-from myProject.views import *
+from myProject.views import studentPage, techerPage, manaementPage, staffPage,libraryPage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('studentpage/', studentpage, name='studentpage'),
-    path('teacherpage/', teacherpage, name='teacherpage'),
-    path('staffpage/', staffpage, name='staffpage'),
-    path('managementpage/', managementpage, name='managementpage'),
-    path('librarypage/', librarypage, name='librarypage'),
+    path('',studentPage, name='student'),
+    path('teacherpage/',techerPage, name='teacher'),
+    path('managementpage/',manaementPage, name='management'),
+    path('staffpage/',staffPage, name='staff'),
+    path('librarypage/',libraryPage, name='library'),
 ]
