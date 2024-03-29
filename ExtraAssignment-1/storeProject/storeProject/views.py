@@ -31,7 +31,7 @@ def deleteStore(request,myid):
     return redirect('storePage')    
 
 def editStore(request,myid):
-    editstore=storeModel.objects.filter(id=myid)
+    editstore=storeModel.objects.get(id=myid)
     storedict={
         'store':editstore
     }

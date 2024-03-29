@@ -40,26 +40,24 @@ div {
 <h3>Edit Store Information</h3>
 
 <div>
-  
-  {% for i in store %}
   <form action="{% url 'updateStore' %}" method="POST">
     {% csrf_token %}
     <label for="sid">Store Id</label>
-    <input type="text" id="sid" name="storeid" value="{{i.id}} " placeholder="Store ID.." readonly>
+    <input type="text" id="sid" name="storeid" value="{{store.id}} " placeholder="Store ID.." readonly>
 
     <label for="sname">Store Name</label>
-    <input type="text" id="sname" name="storename" value="{{i.StoreName}} " placeholder="Store name..">
+    <input type="text" id="sname" name="storename" value="{{store.StoreName}} " placeholder="Store name..">
 
     <label for="oname">Owner Name</label>
-    <input type="text" id="oname" name="ownername"  value="{{i.OwnerName}} "placeholder="Store Owner name..">
+    <input type="text" id="oname" name="ownername"  value="{{store.OwnerName}} "placeholder="Store Owner name..">
 
     <label for="slocation">Store Location</label>
-    <input type="text" id="slocation" name="location" value="{{i.StoreLocation}} " placeholder="Store Location..">
+    <input type="text" id="slocation" name="location" value="{{store.StoreLocation}} " placeholder="Store Location..">
 
     <input type="submit" value="Update Store">
   </form>
     
-  {% endfor %}
+
     
 </div>
 
