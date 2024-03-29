@@ -1,0 +1,30 @@
+{% extends 'master.html' %}
+
+{% block content %}
+    <h1>View Store</h1>
+    <table id="customers">
+
+        <tr>
+            <th>Store Name</th>
+            <th>Store Owner</th>
+            <th>Store Location</th>
+            <th>Action</th>
+        </tr>
+        
+        {% for i in store %}
+        <tr>
+            <td> {{i.StoreName}} </td>
+            <td> {{i.OwnerName}} </td>
+            <td> {{i.StoreLocation}} </td>
+            <td>
+                <a href="{% url 'deleteStore' i.id %}">Delete</a>
+                <a href="{% url 'editStore' i.id %}">Edit</a>
+            </td>
+        </tr>
+            
+        {% endfor %}
+            
+
+    </table>
+{% endblock content %}
+    
