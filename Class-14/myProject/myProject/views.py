@@ -46,12 +46,14 @@ def updatestudent(request):
         fname=request.POST.get('firstname')
         lname=request.POST.get('lastname')
         dept=request.POST.get('department')
+        image=request.FILES.get('picture')
         
         addstd=studentModel(
             id=myid,
             FirstName=fname,
             LastName=lname,
             Department=dept,
+            StudentImage=image,
         )
         addstd.save()
         return redirect('studentpage')

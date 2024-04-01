@@ -43,7 +43,7 @@ div {
 <div>
   
   {% for i in student %}
-  <form action="{% url 'updatestudent' %}" method="POST">
+  <form action="{% url 'updatestudent' %}" method="POST"  enctype="multipart/form-data">
     {% csrf_token %}
     <label for="fname">Student ID</label>
     <input type="text" id="fname" value=" {{i.id}} " name="id" placeholder="Your name..">
@@ -56,6 +56,10 @@ div {
 
     <label for="department">Department</label>
     <input type="text" id="department" value=" {{i.Department}} " name="department" placeholder="Your department name..">
+
+    <label for="picture">Picture</label>
+    <input type="file" id="picture" name="picture" >
+
   
     <input type="submit" value="Update Student">
   </form>
