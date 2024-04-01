@@ -1,0 +1,27 @@
+{% extends 'master.html' %}
+
+{% block content %}
+
+<section>
+    
+
+
+ <div class="row">
+            {% include 'nav.html' %}
+            <div class="col-lg-9 main-content pt-2">
+                <div class="container">
+                    <h1>Education Qualification</h1>
+                    <hr>
+                    <h4>{{info.Degree}} in {{info.Department}}</h4>
+                    <p><strong>Degree :</strong> {{info.Degree}} </p>
+                    <p><strong>Department :</strong> {{info.Department}} </p>
+                    <p><strong>University :</strong> {{info.University}} </p>
+                    <p><strong>Duration :</strong> {{info.Session}} </p>
+                </div>
+            </div>
+        </div>
+        
+</section>
+    
+{% endblock content %}
+    
