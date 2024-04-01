@@ -9,5 +9,6 @@ urlpatterns = [
     path('updateStore/',updateStore,name="updateStore"),
     path('deleteStore/<str:myid>',deleteStore,name="deleteStore"),
     path('editStore/<str:myid>',editStore,name="editStore"),
+    path('viewStore/<str:myid>',viewStore,name="viewStore")
     
 ]

@@ -20,7 +20,6 @@ def addStore(request):
             StoreLocation=slocation,
         )
         addstore.save()
-        
         return redirect('storePage')
         
     return render(request,'addStore.html')
@@ -29,29 +28,39 @@ def deleteStore(request,myid):
     deletestore=storeModel.objects.get(id=myid)
     deletestore.delete()
     return redirect('storePage')    
-
-def editStore(request,myid):
-    editstore=storeModel.objects.get(id=myid)
+        
+def viewStore(request,myid):
+    store=storeModel.objects.get(id=myid)
     storedict={
-        'store':editstore
+        'store':store
     }
+    
+    return render(request,'viewstore.html',storedict)
+
+def editStore(request, myid):
+    store=storeModel.objects.get(id=myid)
+    
+    storedict={
+        'store':store
+    }
+    
     return render(request,'editStore.html',storedict)
 
 def updateStore(request):
-    if request.method=='POST':
+    if request.method =='POST':
+    
         sid=request.POST.get('storeid')
         sname=request.POST.get('storename')
         oname=request.POST.get('ownername')
         slocation=request.POST.get('location')
         
-        updatestore=storeModel(
+        addstore=storeModel(
             id=sid,
             StoreName=sname,
             OwnerName=oname,
             StoreLocation=slocation,
         )
-        updatestore.save()
-        
-        return redirect('storePage')
-        
-        
+        addstore.save()
+    
+    
+    return redirect('storePage')
