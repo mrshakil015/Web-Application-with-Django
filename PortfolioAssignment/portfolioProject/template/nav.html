@@ -1,66 +1,4 @@
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100..800&family=Quicksand:wght@500&display=swap');
 
-  .container{
-    padding: 0;
-    font-family: Anek Bangla;
-    overflow: hidden;
-  }
-  .left-side {
-    height: 100vh;
-    overflow-x: hidden;
-    background-color: #051b33;
-    color: #fff;
-  }
-
-  .left-side .row .image{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .left-side .info{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-
-  .left-side .row .image img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 200px;
-    border: 5px solid #fff;
-    margin-bottom: 10px;
-  }
-  .left-side .info h1{
-    font-weight: bold;
-    font-size: 25px;
-    padding-right: 0;
-  }
-  .left-side .info .sidebar a{
-    color: #fff;
-    text-decoration: none;
-    padding: 3px;
-    font-size: 16px;
-  }
-  .left-side .info .sidebar a:hover{
-    text-decoration: underline;
-    background-color: #3a4b5d;
-
-  }
-  .main-content p{
-    margin: 0;
-  }
-
-</style>
-
-
-  
-
-  
-<div class="col-lg-3 left-side pt-2">
-  <div class="container">
     <div class="row">
       <div class="image">
         <img src="/{{info.Picture}}" alt="image">
@@ -68,13 +6,12 @@
       <div class="info row text-center p-0">
         <h1 class="text-center"> {{info.Name}} </h1>
         <div class="sidebar row text-center p-0 m-0">
-          <a class="active" href="{% url 'homePage' %}">Home</a>
-          <a href="{% url 'aboutPage' %}">About</a>
-          <a href="{% url 'educationPage' %}">Education</a>
-          <a href="">Resume</a>
+          <a class="active" href="{% url 'homePage' %}"><i class='bx bxs-dashboard'></i> Home</a>
+          <a href="{% url 'aboutPage' %}"><i class="fa-solid fa-clipboard-user"></i> About</a>
+          <a href="{% url 'educationPage' %}"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+          <a href="{% url 'resumePage' %}"><i class="fa-solid fa-file-lines"></i> Resume</a>
         </div>
       </div>
-    </div>
-  </div>
+
 </div>
 

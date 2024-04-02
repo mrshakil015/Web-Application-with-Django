@@ -2,22 +2,19 @@
 
 {% block content %}
 
-<section>
-    
-   
-        
-        <div class="row">
-            {% include 'nav.html' %}
-            <div class="col-lg-9 main-content pt-2">
-                <div class="container">
-                    <h1>CHECK MY RESUME</h1>
-                    <hr>
-                    <p><strong> {{info.Summary}}</strong> </p>
-                </div>
-            </div>
-        </div>
- 
-</section>
-    
+
+<div class="row">
+    <div class="col-lg-3 col-md-3 left-side pt-2">
+        {% include 'nav.html' %}
+    </div>
+    <div class="col-lg-9 col-md-9 main-content pt-2">
+        <h1>CHECK MY RESUME</h1>
+        <hr>
+        <p><strong> {{info.Summary}}</strong> </p>
+    </div>
+</div>
+
+
+
+
 {% endblock content %}
-    

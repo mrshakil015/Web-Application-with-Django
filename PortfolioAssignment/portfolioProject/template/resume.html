@@ -1,13 +1,17 @@
 {% extends 'master.html' %}
 
 {% block content %}
-
 <div class="row">
     <div class="col-lg-3 col-md-3 left-side pt-2">
         {% include 'nav.html' %}
     </div>
     <div class="col-lg-9 main-content pt-2">
-        <h1>Education Qualification</h1>
+        <h1>About</h1>
+        <hr>
+        <div class="card p-3 mt-2">
+            <p> {{info.About}} </p>
+        </div>
+        <h1 class="mt-2">Education Qualification</h1>
         <hr>
         <div class="card p-3 mt-2">
             <h4>{{info.Degree}} in {{info.Department}}</h4>
@@ -15,7 +19,14 @@
             <p><strong>University :</strong> {{info.University}} </p>
             <p><strong>Duration :</strong> {{info.Session}} </p>
         </div>
-        
+        <h1 class="mt-2">PROFESSIONAL EXPERIENCE</h1>
+        <hr>
+        <div class="card p-3 mt-2">
+            <h4>{{info.Designation}}</h4>
+            <p><strong>Institute :</strong> {{info.WorkPlace}} </p>
+            <p><strong>Duration :</strong> {{info.Duration}} </p>
+            
+        </div>
     </div>
 </div>
 

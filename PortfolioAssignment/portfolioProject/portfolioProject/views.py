@@ -21,3 +21,10 @@ def educationPage(request):
         'info':info
     }
     return render(request,'education.html',infodict)
+
+def resumePage(request):
+    info=infoModel.objects.get(id=1)
+    infodict={
+        'info':info
+    }
+    return render(request,'resume.html',infodict)
