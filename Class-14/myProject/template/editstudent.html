@@ -46,21 +46,21 @@ div {
   <form action="{% url 'updatestudent' %}" method="POST"  enctype="multipart/form-data">
     {% csrf_token %}
     <label for="fname">Student ID</label>
-    <input type="text" id="fname" value=" {{i.id}} " name="id" placeholder="Your name..">
+    <input type="text" id="fname" value="{{i.id}}" name="id" placeholder="Your name..">
+    <input type="hidden" id="fname" value="{{i.StudentImage}}" name="prepicture" placeholder="Your name..">
 
     <label for="fname">First Name</label>
-    <input type="text" id="fname" value=" {{i.FirstName}} " name="firstname" placeholder="Your name..">
+    <input type="text" id="fname" value="{{i.FirstName}}" name="firstname" placeholder="Your name..">
 
     <label for="lname">Last Name</label>
     <input type="text" id="lname" value=" {{i.LastName}} " name="lastname" placeholder="Your last name..">
 
     <label for="department">Department</label>
-    <input type="text" id="department" value=" {{i.Department}} " name="department" placeholder="Your department name..">
+    <input type="text" id="department" value="{{i.Department}}" name="department" placeholder="Your department name..">
 
     <label for="picture">Picture</label>
     <input type="file" id="picture" name="picture" >
 
-  
     <input type="submit" value="Update Student">
   </form>
     

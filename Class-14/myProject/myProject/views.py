@@ -36,7 +36,6 @@ def editstudent(request, myid):
     stddic={
         'student':student
     }
-
     return render(request,'editstudent.html',stddic)
 
 def updatestudent(request):
@@ -47,14 +46,25 @@ def updatestudent(request):
         lname=request.POST.get('lastname')
         dept=request.POST.get('department')
         image=request.FILES.get('picture')
+        preimage=request.POST.get('prepicture')
+        print(preimage)
         
-        addstd=studentModel(
+        if image==None:
+            addstd=studentModel(
             id=myid,
             FirstName=fname,
             LastName=lname,
             Department=dept,
-            StudentImage=image,
+            StudentImage=preimage,
         )
+        else:
+            addstd=studentModel(
+                id=myid,
+                FirstName=fname,
+                LastName=lname,
+                Department=dept,
+                StudentImage=image,
+            )
         addstd.save()
         return redirect('studentpage')
     
