@@ -28,3 +28,10 @@ def resumePage(request):
         'info':info
     }
     return render(request,'resume.html',infodict)
+
+def editInfo(request):
+    info=infoModel.objects.get(id=1)
+    infodict={
+        'info':info
+    }
+    return render(request,'editinfo.html',infodict)

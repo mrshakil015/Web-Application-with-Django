@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<body>
+
+<div>
+  <form action="/action_page.php">
+    <h1>Update Information</h1>
+    <label for="fname">Name</label>
+    <input type="text" id="fname" value="{{info.Name}}" name="name" placeholder="Enter Value...">
+    <label for="fname">About</label>
+    <input type="text" id="fname" value="{{info.About}}" name="about" placeholder="Enter Value...">
+    <label for="fname">Summary</label>
+    <input type="text" id="fname" value="{{info.Summary}}" name="summary" placeholder="Enter Value...">
+    <label for="fname">Address</label>
+    <input type="text" id="fname" value="{{info.Address}}" name="name" placeholder="Enter Value...">
+    <label for="fname">Email</label>
+    <input type="text" id="fname" value="{{info.Email}}" name="email" placeholder="Enter Value...">
+    <label for="fname">Mobile</label>
+    <input type="text" id="fname" value="{{info.Mobile}}" name="mobile" placeholder="Enter Value...">
+    <label for="fname">Degree</label>
+    <input type="text" id="fname" value="{{info.Degree}}" name="degree" placeholder="Enter Value...">
+    <label for="fname">Department</label>
+    <input type="text" id="fname" value="{{info.Department}}" name="department" placeholder="Enter Value...">
+    <label for="fname">University</label>
+    <input type="text" id="fname" value="{{info.University}}" name="university" placeholder="Enter Value...">
+    <label for="fname">Duration</label>
+    <input type="text" id="fname" value="{{info.Session}}" name="duration" placeholder="Enter Value...">
+    <label for="fname">WorkPlace</label>
+    <input type="text" id="fname" value="{{info.WorkPlace}}" name="workplace" placeholder="Enter Value...">
+    <label for="fname">Designation</label>
+    <input type="text" id="fname" value="{{info.Designation}}" name="designation" placeholder="Enter Value...">
+    <label for="fname">Duration</label>
+    <input type="text" id="fname" value="{{info.Duration}}" name="duration" placeholder="Enter Value...">
+    <label for="fname">ProgrammingSkill</label>
+    <input type="text" id="fname" value="{{info.ProgrammingSkill}}" name="programmingskill" placeholder="Enter Value...">
+    <label for="fname">Other</label>
+    <input type="text" id="fname" value="{{info.Other}}" name="other" placeholder="Enter Value...">
+
+    
+    
+    <input type="submit" value="Update Information">
+  </form>
+</div>
+
+</body>
+</html>
+
+

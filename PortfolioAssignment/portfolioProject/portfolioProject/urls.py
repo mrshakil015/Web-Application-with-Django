@@ -10,4 +10,5 @@ urlpatterns = [
     path('aboutPage/',aboutPage,name="aboutPage"),
     path('educationPage/',educationPage,name="educationPage"),
     path('resumePage/',resumePage,name="resumePage"),
+    path('editInfo/',editInfo,name="editInfo"),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
