@@ -1,0 +1,30 @@
+{% extends 'admin.html' %}
+
+{% block content %}
+{% load static %}
+
+<section class="d-flex flex-column">
+    <div class="container">
+        <div class="section-title">
+            <h2>Edit Home Page Information</h2>
+        </div>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="hname" class="form-label">Home Page Name</label>
+                <input type="text" class="form-control" value="{{homedata.Name}}" id="hname" required>
+            </div>
+            <div class="mb-3">
+                <label for="htitle" class="form-label">Home Page Short Title</label>
+                <input type="text" class="form-control" value="{{homedata.Title}}" id="htitle" required>
+            </div>
+            <div class="mb-3">
+                <label for="bgimage" class="form-label">Background Image</label>
+                <input type="file" class="form-control" id="bgimage" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</section><!-- End Hero -->
+
+{% endblock content %}

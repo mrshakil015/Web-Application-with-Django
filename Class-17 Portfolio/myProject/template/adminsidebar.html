@@ -1,0 +1,19 @@
+{% load static %}
+<header id="header">
+    <div class="d-flex flex-column">
+      
+
+      
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="{% url 'edithome' %}" class="nav-link scrollto"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="{% url 'editabout' %}" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+          <li><a href="{% url 'editeducation' %}" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Education</span></a></li>
+          <li><a href="{% url 'editwork' %}" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Profession</span></a></li>
+          <li><a href="{% url 'editcontact' %}" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Contact</span></a></li>
+          
+        </ul>
+      </nav>
+    </div>
+  </header><!-- End Header -->

@@ -1,0 +1,56 @@
+{% extends 'admin.html' %}
+
+{% block content %}
+{% load static %}
+
+<section class="d-flex flex-column">
+    <div class="container">
+        <div class="section-title">
+            <h2>Edit About Information</h2>
+        </div>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" value="{{aboutdata.Name}}" id="hname" required>
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Title</label>
+                <input type="text" class="form-control" value="{{aboutdata.Title}}" id="hname" required>
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Degree</label>
+                <input type="text" class="form-control" value="{{aboutdata.Degree}}" id="hname" required>
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">About Me</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1"
+                    rows="6">{{aboutdata.AboutMe}}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Phone</label>
+                <input type="text" class="form-control" value="{{aboutdata.Phone}}" id="hname" required>
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Email</label>
+                <input type="text" class="form-control" value="{{aboutdata.Email}}" id="hname" required>
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Address</label>
+                <input type="text" class="form-control" value="{{aboutdata.Address}}" id="hname" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="bgimage" class="form-label">Background Image</label>
+                <input type="file" class="form-control" id="bgimage" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+
+
+        <!-- <p>I'm</p> -->
+    </div>
+</section><!-- End Hero -->
+
+{% endblock content %}
