@@ -47,11 +47,11 @@ def editabout(request):
     }
     return render(request, 'editabout.html',datadict)
 def editeducation(request):
-    aboutdata=AboutModel.objects.get()
-    datadict={
-        'aboutdata': aboutdata 
+    educationdata=AboutModel.objects.get()
+    educationdict={
+        'educationdata': educationdata
     }
-    return render(request, 'editeducation.html',datadict)
+    return render(request, 'editeducation.html',educationdict)
 def editwork(request):
     aboutdata=AboutModel.objects.get()
     datadict={
