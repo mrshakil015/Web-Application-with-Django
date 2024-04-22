@@ -5,6 +5,11 @@ def signup(request):
     if request.method=='POST':
         display_name=request.POST.get('displayname')
         user_name=request.POST.get('username')
+        father_name=request.POST.get('fname')
+        mother_name=request.POST.get('mname')
+        address=request.POST.get('address')
+        bloodgroup=request.POST.get('bloodgroup')
+        profileimg=request.FILES.get('profileimg')
         email_address=request.POST.get('email')
         pass_word=request.POST.get('password')
         confirm_Password=request.POST.get('confirmPassword')
@@ -15,6 +20,13 @@ def signup(request):
             user.displayname=display_name
             user.email=email_address
             user.user_type=userType
+            user.fathername=father_name
+            user.mothername=mother_name
+            user.address=address
+            user.blood_group=bloodgroup
+            user.profileimg=profileimg
+            
+            
             user.save()
             return redirect('signin')
         else:
