@@ -7,10 +7,6 @@ class Custom_User(AbstractUser):
     ]
     
     displayname=models.CharField(max_length=100)
-    user_name=models.CharField(max_length=100)
-    email=models.EmailField(max_length=100)
-    password=models.CharField(max_length=100)
-    confirmpassword=models.CharField(max_length=100)
     user_type=models.CharField(choices=USER,max_length=100)
     
 

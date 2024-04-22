@@ -15,12 +15,17 @@
                     <div class="card-body">
                         <h3 class="card-title text-center mb-4">Signup</h3>
                         <form action="{% url 'signup' %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
                             <div class="mb-3">
                                 <label for="userType" class="form-label">User Type</label>
                                 <select class="form-select" id="userType" name="userType">
                                     <option value="recruiter">Job Recruiter</option>
                                     <option value="seeker">Job Seeker</option>
                                 </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="displayname" class="form-label">Display Name</label>
+                                <input type="text" class="form-control" id="displayname" name="displayname" required>
                             </div>
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
