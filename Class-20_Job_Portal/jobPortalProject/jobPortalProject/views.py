@@ -49,6 +49,26 @@ def signin(request):
         
     return render(request,'signin.html')
 
+def logoutPage(request):
+    logout(request)
+    
+    return redirect('signin')
+
 def dashboard(request):
     
     return render(request,'dashboard.html')
+
+def addjob(request):
+    
+    return render(request,'addjob.html')
+
+def viewjob(request):
+    
+    return render(request,'viewjob.html')
+
+def profile(request):
+    
+    return render(request,'profile.html')
+def appliedJob(request):
+    
+    return render(request,'appliedJob.html')
