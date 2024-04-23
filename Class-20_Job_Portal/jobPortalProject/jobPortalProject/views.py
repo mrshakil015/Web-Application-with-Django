@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from jobPortalApp.models import *
+from django.contrib.auth import authenticate, login, logout
 
 def signup(request):
     if request.method=='POST':
@@ -26,7 +27,6 @@ def signup(request):
             user.blood_group=bloodgroup
             user.profileimg=profileimg
             
-            
             user.save()
             return redirect('signin')
         else:
@@ -35,4 +35,20 @@ def signup(request):
     return render(request,'signup.html')
 
 def signin(request):
+    if request.method=='POST':
+        user_name=request.POST.get('username')
+        pass_word=request.POST.get('password')
+        
+        user=authenticate(username=user_name, password=pass_word)
+        
+        if user:
+            login(request,user)
+            return redirect('dashboard')
+        else:
+            return redirect('signin')
+        
     return render(request,'signin.html')
+
+def dashboard(request):
+    
+    return render(request,'dashboard.html')
