@@ -19,14 +19,16 @@ class Custom_User(AbstractUser):
     blood_group=models.CharField(choices=BLOODGROUP,max_length=100,null=True)
     
 class AddJobModel(models.Model):
-    JobTitle=models.CharField(max_length=50)
-    CompanyName=models.CharField(max_length=50)
-    CompanyDescription=models.TextField()
-    JobDescription=models.TextField()
-    Qualification=models.CharField(max_length=50)
-    Salary=models.CharField(max_length=50)
-    Designation=models.CharField(max_length=50)
-    Experience=models.CharField(max_length=50)
+    RecruiterName=models.CharField(max_length=100,null=True)
+    JobTitle=models.CharField(max_length=100,null=True)
+    CompanyName=models.CharField(max_length=100,null=True)
+    CompanyDescription=models.TextField(null=True)
+    JobDescription=models.TextField(null=True)
+    Qualification=models.CharField(max_length=100,null=True)
+    Salary=models.CharField(max_length=100,null=True)
+    Designation=models.CharField(max_length=100,null=True)
+    Experience=models.CharField(max_length=100,null=True)
+    Deadline=models.CharField(max_length=100,null=True)
     
     
 

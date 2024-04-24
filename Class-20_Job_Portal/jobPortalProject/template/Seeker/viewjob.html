@@ -1,0 +1,21 @@
+{% extends 'master.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>View Job Page</h1>
+        {% for i in jobdata %}
+        <div class="card p-3">
+            <span><strong>Job Title:</strong> {{i.JobTitle}}</span>
+            <span><strong>Company Name:</strong> {{i.CompanyName}}</span>
+            <span><strong>Company Description:</strong> {{i.CompanyDescription}}</span>
+            <span><strong>Job Description:</strong> {{i.JobDescription}}</span>
+            <span><strong>Qualification:</strong> {{i.Qualification}}</span>
+            <span><strong>Salary:</strong> {{i.Salary}}</span>
+            <span><strong>Experience:</strong> {{i.Experience}}</span>
+            <span><strong>Deadline:</strong> {{i.Deadline}}</span> 
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}
+    

@@ -19,7 +19,7 @@
                 <a class="nav-link active" aria-current="page" href="{% url 'dashboard' %}">Dahsboard</a>
               </li>
               
-              {% if user.user_type == 'jobseekter' %}
+              {% if user.user_type == 'seeker' %}
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'viewjob' %}">View Job</a>
               </li>

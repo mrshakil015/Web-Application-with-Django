@@ -1,0 +1,79 @@
+{% extends 'master.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Job Form</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-5">Edit Job</h1>
+    <form action="{% url 'updatejob' %}" method="post">
+      {% csrf_token %}
+      <!-- Job Title -->
+      <div class="mb-3">
+        <label for="jobTitle" class="form-label">Job ID</label>
+        <input type="text" class="form-control" value="{{jobdata.id}}" id="jobid" name="jobid" required>
+        <input type="text" class="form-control" value="{{jobdata.RecruiterName}}" id="jobid" name="recruiterName" required>
+      </div>
+      <div class="mb-3">
+        <label for="jobTitle" class="form-label">Job Title</label>
+        <input type="text" class="form-control" value="{{jobdata.JobTitle}}" id="jobTitle" name="jobTitle" required>
+      </div>
+      <!-- Company Name -->
+      <div class="mb-3">
+        <label for="companyName" class="form-label">Company Name</label>
+        <input type="text" class="form-control" value="{{jobdata.CompanyName}}" id="companyName" name="companyName" required>
+      </div>
+      <!-- Company Description -->
+      <div class="mb-3">
+        <label for="companyDescription" class="form-label">Company Description</label>
+        <input type="text" class="form-control" value="{{jobdata.CompanyDescription}}" id="companyDescription" name="companyDescription" rows="3" required>
+      </div>
+      <!-- Job Description -->
+      <div class="mb-3">
+        <label for="jobDescription" class="form-label">Job Description</label>
+        <textarea type="text" class="form-control"  id="jobDescription" name="jobDescription" rows="3" required>{{jobdata.JobDescription}}</textarea>
+      </div>
+      <!-- Qualification -->
+      <div class="mb-3">
+        <label for="qualification" class="form-label">Qualification</label>
+        <input type="text" class="form-control" value="{{jobdata.Qualification}}" id="qualification" name="qualification" required>
+      </div>
+      <!-- Salary -->
+      <div class="mb-3">
+        <label for="salary" class="form-label">Salary</label>
+        <input type="text" class="form-control" value="{{jobdata.Salary}}" id="salary" name="salary" required>
+      </div>
+      <!-- Deadline -->
+      <div class="mb-3">
+        <label for="deadline" class="form-label">Deadline</label>
+        <input type="text" class="form-control" value="{{jobdata.Deadline}}" id="deadline" name="deadline" required>
+      </div>
+      <!-- Designation -->
+      <div class="mb-3">
+        <label for="designation" class="form-label">Designation</label>
+        <input type="text" class="form-control" value="{{jobdata.Designation}}" id="designation" name="designation" required>
+      </div>
+      <!-- Experience -->
+      <div class="mb-3">
+        <label for="experience" class="form-label">Experience</label>
+        <input type="text" class="form-control" value="{{jobdata.Experience}}" id="experience" name="experience" required>
+      </div>
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+{% endblock content %}
+    

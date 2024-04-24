@@ -1,1 +1,4 @@
 # <b>Django AbstractUser:</b>
+AbstractUser is a built-in abstract model provided by the Django authentication system. It's designed to be used as a base class for creating custom user models. When we create a new Django project, Django provides a default user model called User. This model includes commonly needed fields for user authentication such as username, email, password, first name, and last name.
+
+`Note:` We don't create superuser, makemigrations, & migrate When we work with django custom user (AbstructUser). After create AbstructUser model then we do makemigrations migrate. Otherwise we fetch some error. After that if we fetch error. Then we delete the `migrations,_pycache_` folder.

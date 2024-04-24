@@ -13,7 +13,8 @@
 <body>
   <div class="container">
     <h1 class="mt-5">Add Job</h1>
-    <form action="#" method="post">
+    <form action="{% url 'addjob' %}" method="post">
+      {% csrf_token %}
       <!-- Job Title -->
       <div class="mb-3">
         <label for="jobTitle" class="form-label">Job Title</label>

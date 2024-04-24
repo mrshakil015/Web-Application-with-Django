@@ -113,6 +113,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "jobPortalApp.Custom_User"
 
+LOGIN_URL = "signin"
+
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]

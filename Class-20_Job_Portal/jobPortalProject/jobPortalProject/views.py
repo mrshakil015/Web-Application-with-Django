@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from jobPortalApp.models import *
 from django.contrib.auth import authenticate, login, logout
 
+from django.contrib.auth.decorators import login_required
+
 def signup(request):
     if request.method=='POST':
         display_name=request.POST.get('displayname')
@@ -54,21 +56,104 @@ def logoutPage(request):
     
     return redirect('signin')
 
+@login_required
 def dashboard(request):
+    jobdata=AddJobModel.objects.filter(RecruiterName=request.user.username)
     
-    return render(request,'dashboard.html')
+    jobdict={
+        'jobdata':jobdata
+    }
+    return render(request,'dashboard.html',jobdict)
 
+@login_required
 def addjob(request):
+    if request.method=='POST':
+        jobTitle=request.POST.get('jobTitle')
+        companyName=request.POST.get('companyName')
+        companyAddress=request.POST.get('companyAddress')
+        companyDescription=request.POST.get('companyDescription')
+        jobDescription=request.POST.get('jobDescription')
+        salary=request.POST.get('salary')
+        deadline=request.POST.get('deadline')
+        designation=request.POST.get('designation')
+        experience=request.POST.get('experience')
+        
+        addJobdata= AddJobModel(
+            JobTitle=jobTitle,
+            CompanyName=companyName,
+            CompanyDescription=companyAddress,
+            JobDescription=companyDescription,
+            Qualification=jobDescription,
+            Salary=salary,
+            Designation=designation,
+            Deadline=deadline,
+            Experience=experience,
+            RecruiterName=request.user.username
+        )
+        addJobdata.save()
+        return redirect('dashboard')
     
-    return render(request,'addjob.html')
+    return render(request,'Recruiter/addjob.html')
 
+@login_required
+def editjob(request,myid):
+    jobdata=AddJobModel.objects.get(id=myid)
+    jobdict={
+        'jobdata':jobdata
+    }  
+    return render(request,'editjob.html',jobdict)
+
+@login_required
+def updatejob(request):
+    if request.method=='POST':
+        jobid=request.POST.get('jobid')
+        jobTitle=request.POST.get('jobTitle')
+        companyName=request.POST.get('companyName')
+        companyAddress=request.POST.get('companyAddress')
+        companyDescription=request.POST.get('companyDescription')
+        jobDescription=request.POST.get('jobDescription')
+        salary=request.POST.get('salary')
+        deadline=request.POST.get('deadline')
+        designation=request.POST.get('designation')
+        experience=request.POST.get('experience')
+        
+        addJobdata= AddJobModel(
+            id=jobid,
+            JobTitle=jobTitle,
+            CompanyName=companyName,
+            CompanyDescription=companyAddress,
+            JobDescription=companyDescription,
+            Qualification=jobDescription,
+            Salary=salary,
+            Designation=designation,
+            Deadline=deadline,
+            Experience=experience,
+            RecruiterName=request.user.username
+        )
+        addJobdata.save()
+        return redirect('dashboard')
+    
+@login_required
 def viewjob(request):
     
-    return render(request,'viewjob.html')
+    jobdata=AddJobModel.objects.all()
+    jobdict={
+        'jobdata':jobdata
+    }
+    
+    return render(request,'Seeker/viewjob.html',jobdict)
 
+@login_required
+def deletejob(request,myid):
+    jobdata=AddJobModel.objects.get(id=myid)
+    
+    jobdata.delete()
+    return redirect('dashboard')
+
+@login_required
 def profile(request):
     
     return render(request,'profile.html')
 def appliedJob(request):
     
-    return render(request,'appliedJob.html')
+    return render(request,'Seeker/appliedJob.html')

@@ -2,7 +2,46 @@
 
 {% block content %}
 
-<h1>Welcome {{user.username}}</h1>
+<h1>Welcome {{user.displayname}}</h1>
+<h4><strong>User Type:</strong> {{user.user_type}}</h4>
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Job Title</th>
+        <th>Company Name</th>
+        <th>Salary</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      
+      {% for i in jobdata %}
+      
+      <tr>
+
+        <td>{{i.JobTitle}}</td>
+        <td>{{i.CompanyName}}</td>
+        <td>{{i.Salary}}</td>
+        <td>
+            <a href="{% url 'editjob' i.id %}">Edit</a>
+            <a href="{% url 'deletejob' i.id %}">Delete</a>
+        </td>
+
+      </tr>
+      
+      {% endfor %}
+        
+      
+        
+  
+    </tbody>
+  </table>
+    
+
+    
     
 {% endblock content %}
     
