@@ -58,8 +58,10 @@ def logoutPage(request):
 
 @login_required
 def dashboard(request):
-    jobdata=AddJobModel.objects.filter(RecruiterName=request.user.username)
-    
+    if request.user.user_type=='recruiter':
+        jobdata=AddJobModel.objects.filter(RecruiterName=request.user.username)
+    else:
+        jobdata=AddJobModel.objects.all()
     jobdict={
         'jobdata':jobdata
     }

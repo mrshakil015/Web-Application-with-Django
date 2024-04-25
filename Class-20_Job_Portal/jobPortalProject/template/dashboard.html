@@ -13,6 +13,7 @@
         <th>Company Name</th>
         <th>Salary</th>
         <th>Action</th>
+
       </tr>
     </thead>
     <tbody>
@@ -25,10 +26,19 @@
         <td>{{i.JobTitle}}</td>
         <td>{{i.CompanyName}}</td>
         <td>{{i.Salary}}</td>
+        
+        {% if user.user_type == 'recruiter'  %}
         <td>
-            <a href="{% url 'editjob' i.id %}">Edit</a>
-            <a href="{% url 'deletejob' i.id %}">Delete</a>
+          <a href="{% url 'editjob' i.id %}">Edit</a>
+          <a href="{% url 'deletejob' i.id %}">Delete</a>
         </td>
+        {% elif user.user_type == 'seeker' %}
+        <td>
+          <a href="">View</a>
+        </td>
+          
+        {% endif %}
+          
 
       </tr>
       
