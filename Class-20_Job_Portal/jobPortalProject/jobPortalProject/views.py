@@ -159,3 +159,14 @@ def profile(request):
 def appliedJob(request):
     
     return render(request,'Seeker/appliedJob.html')
+
+def joblistPage(request):
+    if request.user.user_type=='recruiter':
+        jobdata=AddJobModel.objects.filter(RecruiterName=request.user.username)
+    else:
+        jobdata=AddJobModel.objects.all()
+    jobdict={
+        'jobdata':jobdata
+    }
+    return render(request,'joblist.html',jobdict)
+    
