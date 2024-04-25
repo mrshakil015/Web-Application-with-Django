@@ -58,14 +58,8 @@ def logoutPage(request):
 
 @login_required
 def dashboard(request):
-    if request.user.user_type=='recruiter':
-        jobdata=AddJobModel.objects.filter(RecruiterName=request.user.username)
-    else:
-        jobdata=AddJobModel.objects.all()
-    jobdict={
-        'jobdata':jobdata
-    }
-    return render(request,'dashboard.html',jobdict)
+    
+    return render(request,'dashboard.html')
 
 @login_required
 def addjob(request):
@@ -79,6 +73,7 @@ def addjob(request):
         deadline=request.POST.get('deadline')
         designation=request.POST.get('designation')
         experience=request.POST.get('experience')
+        current_user = request.user
         
         addJobdata= AddJobModel(
             JobTitle=jobTitle,
@@ -90,7 +85,8 @@ def addjob(request):
             Designation=designation,
             Deadline=deadline,
             Experience=experience,
-            RecruiterName=request.user.username
+            RecruiterName=request.user.username,
+            Created_by=current_user
         )
         addJobdata.save()
         return redirect('dashboard')
@@ -133,7 +129,7 @@ def updatejob(request):
             RecruiterName=request.user.username
         )
         addJobdata.save()
-        return redirect('dashboard')
+        return redirect('joblistPage')
     
 @login_required
 def viewjob(request):
@@ -150,7 +146,7 @@ def deletejob(request,myid):
     jobdata=AddJobModel.objects.get(id=myid)
     
     jobdata.delete()
-    return redirect('dashboard')
+    return redirect('joblistPage')
 
 @login_required
 def profile(request):

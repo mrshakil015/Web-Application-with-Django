@@ -29,6 +29,7 @@ class AddJobModel(models.Model):
     Designation=models.CharField(max_length=100,null=True)
     Experience=models.CharField(max_length=100,null=True)
     Deadline=models.CharField(max_length=100,null=True)
+    Created_by = models.ForeignKey(Custom_User,on_delete=models.CASCADE, null=True)
     
     
 
