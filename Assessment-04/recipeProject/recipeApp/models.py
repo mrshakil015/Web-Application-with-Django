@@ -14,11 +14,11 @@ class Recipe_User(AbstractUser):
         ('Female','Female')
     ]
     
-    Gender = models.CharField(choices=GENDER,max_length=100)
-    UserType= models.CharField(choices=USER,max_length=100)
-    City=models.CharField(max_length=100)
-    Age=models.CharField(max_length=100)
-    Country=models.CharField(max_length=100)
+    Gender = models.CharField(choices=GENDER,max_length=100,null=True)
+    UserType= models.CharField(choices=USER,max_length=100,null=True)
+    City=models.CharField(max_length=100,null=True)
+    Age=models.CharField(max_length=100,null=True)
+    Country=models.CharField(max_length=100,null=True)
 
 class addRecipeModel(models.Model):
     DIFLEVEL=[
@@ -50,5 +50,3 @@ class addRecipeModel(models.Model):
     DifficultyLevel= models.CharField(choices=DIFLEVEL,max_length=100,null=True)
     SampleImage=models.ImageField(upload_to='static/img/',null=True)
     Create_by = models.ForeignKey(Recipe_User,on_delete=models.CASCADE,null=True)
-    
-    

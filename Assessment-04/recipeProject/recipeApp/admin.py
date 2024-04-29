@@ -11,3 +11,4 @@ class Recipe_Display(admin.ModelAdmin):
     
 admin.site.register(Recipe_User,Recipe_User_Display)
 admin.site.register(addRecipeModel,Recipe_Display)
+
