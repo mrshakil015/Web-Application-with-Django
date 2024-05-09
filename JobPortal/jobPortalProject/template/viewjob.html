@@ -1,0 +1,82 @@
+{% extends 'master.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Job</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            margin-top: 0;
+        }
+        .job-info {
+            margin-bottom: 20px;
+        }
+        .job-info label {
+            font-weight: bold;
+        }
+        .job-info p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Job Details</h1>
+    <div class="job-info">
+        <label>Job Title:</label>
+        <p>{{ viewjobdata.JobTitle }}</p>
+    </div>
+    <div class="job-info">
+        <label>Company Name:</label>
+        <p>{{ viewjobdata.CompanyName }}</p>
+    </div>
+    <div class="job-info">
+        <label>Company Address:</label>
+        <p>{{ viewjobdata.CompanyAddress }}</p>
+    </div>
+    <div class="job-info">
+        <label>Designation:</label>
+        <p>{{ viewjobdata.Designation }}</p>
+    </div>
+    <div class="job-info">
+        <label>Job Description:</label>
+        <p>{{ viewjobdata.JobDescription }}</p>
+    </div>
+    <div class="job-info">
+        <label>Salary:</label>
+        <p>{{ viewjobdata.Salary }}</p>
+    </div>
+    <div class="job-info">
+        <label>Experience:</label>
+        <p>{{ viewjobdata.Experience }}</p>
+    </div>
+    <div class="job-info">
+        <label>Deadline:</label>
+        <p>{{ viewjobdata.Deadline }}</p>
+    </div>
+</div>
+
+</body>
+</html>
+
+    
+{% endblock content %}
+    

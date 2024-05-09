@@ -1,0 +1,41 @@
+{% extends 'profile.html' %}
+
+{% block profilecontent  %}
+<div class="profile-info">
+    <label>Full Name:</label>
+    <p>{{ user.FullName }}</p>
+</div>
+<div class="profile-info">
+    <label>Username:</label>
+    <p>{{ user.username }}</p>
+</div>
+<div class="profile-info">
+    <label>User Type:</label>
+    <p>{{ user.UserType }}</p>
+</div>
+
+
+{% if user.recuriterprofile %}
+<div class="profile-info">
+    <label>Company Name:</label>
+    <p>{{ user.recuriterprofile.CompanyName }}</p>
+</div>
+<div class="profile-info">
+    <label>Company Address:</label>
+    <p>{{ user.recuriterprofile.CompanyAddress }}</p>
+</div>
+
+{% else %}
+<div class="profile-info">
+    <label>Skills:</label>
+    <p>{{ user.seekerprofile.Skills }}</p>
+</div>
+<div class="profile-info">
+    <label>Work Experience:</label>
+    <p>{{ user.seekerprofile.myUser.FullName }}</p>
+</div>
+
+{% endif %}
+    
+{% endblock profilecontent %}
+    

@@ -47,14 +47,11 @@
     <div class="container mb-3">
         <div class="row justify-content-center">
             {% for i in jobdata %}
-          <div class="col-md-6">
+          <div class="col-md-6 mt-4">
             <div class="profile-container">
               <div class="text-left">
                 <h5><strong>Job Title:</strong>{{i.JobTitle}}</h5>
                 <p><strong>Company Name:</strong> {{i.CompanyName}}</p>
-              </div>
-              <div class="profile-info">
-                <p><strong>User Type:</strong> {{ user.user_type }}</p>
               </div>
               <a class="btn btn-primary" href="{% url 'editjob' i.id %}">Edit</a>
               <a class="btn btn-danger" href="{% url 'deletejob' i.id %}">Delete</a>

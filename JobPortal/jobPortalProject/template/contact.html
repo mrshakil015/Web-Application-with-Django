@@ -1,0 +1,20 @@
+{% extends 'profile.html' %}
+
+{% block profilecontent  %}
+
+<div class="profile-info">
+    <label>Mobile No:</label>
+    <p>{{ user.contactinfomodel.Mobile }}</p>
+</div>
+<div class="profile-info">
+    <label>Email:</label>
+    <p>{{ user.email }}</p>
+</div>
+<div class="profile-info">
+    <label>Address:</label>
+    <p>{{ user.email }}</p>
+</div>
+
+    
+{% endblock profilecontent %}
+    

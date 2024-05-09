@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="button-container">
+        <a href="{% url 'editprofilePage' %}" class="button">Edit</a>
+        <a href="{% url 'basicinfo' %}" class="button button2">Basic Info</a>
+        <a href="{% url 'contactinfo' %}" class="button button2">Contact</a>
+        
+        {% if user.UserType == 'Recuriter' %}
+        <a href="{% url 'JobList' %}" class="button button2">Posted Job</a>
+
+        {% else %}
+        <a href="" class="button button3">Applied Job</a>
+        <a href="" class="button button1">Education</a>
+        <a href="" class="button button5">Work</a>
+        {% endif %} 
+    </div>
+</body>
+</html>

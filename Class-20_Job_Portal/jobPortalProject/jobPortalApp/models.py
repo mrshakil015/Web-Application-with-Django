@@ -32,4 +32,18 @@ class AddJobModel(models.Model):
     Created_by = models.ForeignKey(Custom_User,on_delete=models.CASCADE, null=True)
     
     
+class jobSeekerProfile(models.Model):
+    myUser = models.OneToOneField(Custom_User, on_delete=models.CASCADE, related_name='jobseekerprofile')
+    skills=models.CharField(max_length=100,null=True)
+    work_experience=models.CharField(max_length=100,null=True)
+    
+    def __str__(self) -> str:
+        return self.myUser.username+ " - "+self.myUser.user_type
 
+class jobRecruiterProfile(models.Model):
+    myUser = models.OneToOneField(Custom_User, on_delete=models.CASCADE, related_name='jobrecruiterprofile')
+    company_name=models.CharField(max_length=100,null=True)
+    company_address=models.CharField(max_length=100,null=True)
+    
+    def __str__(self) -> str:
+        return self.myUser.username+ " - "+self.myUser.user_type

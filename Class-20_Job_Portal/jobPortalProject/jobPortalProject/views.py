@@ -29,6 +29,11 @@ def signup(request):
             user.blood_group=bloodgroup
             user.profileimg=profileimg
             
+            if userType == 'recruiter':
+                jobRecruiterProfile.objects.create(myUser=user)
+            else:
+                jobSeekerProfile.objects.create(myUser=user)
+            
             user.save()
             return redirect('signin')
         else:

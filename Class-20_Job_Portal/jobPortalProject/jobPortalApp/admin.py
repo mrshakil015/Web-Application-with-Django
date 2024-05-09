@@ -9,5 +9,7 @@ class Job_Model_Display(admin.ModelAdmin):
     
 admin.site.register(Custom_User,Custom_User_Display)
 admin.site.register(AddJobModel,Job_Model_Display)
+admin.site.register(jobRecruiterProfile)
+admin.site.register(jobSeekerProfile)
 
 
