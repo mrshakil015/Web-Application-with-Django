@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from PIL import Image
+from django.contrib.auth.hashers import check_password
 
 context = {
     'success_msg':'Successfully Created.',
@@ -37,7 +38,7 @@ def signupPage(request):
             messages.warning(request,context['imagesize_msg'])
         elif width !=500 and height != 500:
             messages.warning(request,context['imageresulation_msg'])
-        else:    
+        else:
             if password==confpassword:
                 user = Job_User.objects.create_user(username=username, password=password)
                 user.FullName=fullName
@@ -206,70 +207,37 @@ def viewjob(request,viewid):
 
 @login_required
 def editprofilePage(request):
-    
+    current_user=request.user
+    current_usertype=request.user.UserType
     if request.method=='POST':
-        fullName=request.POST.get('fullName')
-        idno=request.POST.get('idno')
-        address=request.POST.get('address')
         email=request.POST.get('email')
+        fullName=request.POST.get('fullName')
+        address=request.POST.get('address')
+        dateOfBirth=request.POST.get('dateOfBirth')
+        nationality=request.POST.get('nationality')
+        religion=request.POST.get('religion')
+        mobile=request.POST.get('mobile')
+
         companyName=request.POST.get('companyName')
         companyAddress=request.POST.get('companyAddress')
-        skills=request.POST.get('skills')
-        workExperience=request.POST.get('workExperience')
         preimg=request.POST.get('preimg')
         profileimg=request.FILES.get('profileimg')
-        
-        current_user=request.user.username
-        current_usertype=request.user.UserType
-        
+        pass_word=request.POST.get('password')
+        cnfpassword=request.POST.get('cnfpassword')
         
 
         
-        if current_usertype == 'Recuriter':
-            recuriterid = request.user.recuriterprofile.id
-            updateuserinfo = Job_User(
-                id=idno,
-                FullName=fullName,
-                Address=address,
-                UserType=current_usertype,
-                username=current_user,
-                password=request.user.password,
-                email=email,
-                ProfileImage=profileimg,
-            )
-            updaterequirterinfo =RecruiterProfileModel.objects.get(id=recuriterid)
-            print("Mode type: ",type(updaterequirterinfo))
-            updaterequirterinfo.CompanyName = companyName
-            updaterequirterinfo.CompanyAddress = companyAddress
+        if pass_word == cnfpassword:
+            if check_password(pass_word, current_user.password):
+                current_user.email = email
+                current_user.FullName = fullName
+                current_user.Address = address
+                current_user.basicinfomodel.DateOfBirth = dateOfBirth
+                current_user.contactinfomodel.Mobile = mobile
+                current_user.save()
+                current_user.contactinfomodel.save()
+                return redirect("basicinfo")
             
-            # updaterequirterinfo = RecruiterProfileModel(
-            #     id=recuriterid,
-            #     CompanyName=companyName,
-            #     CompanyAddress=companyAddress,
-            # )
-            updaterequirterinfo.save()
-            updateuserinfo.save()
-        else:
-            seekerid = request.user.seekerprofile.id
-            updateuserinfo = Job_User(
-                id=idno,
-                FullName=fullName,
-                Address=address,
-                UserType=current_usertype,
-                username=current_user,
-                email=email,
-                ProfileImage=profileimg,
-            )
-            updateseekerinfo = SeekerProfileModel.objects.get(id=seekerid)
-            
-            # updateseekerinfo = SeekerProfileModel(
-            #     id=seekerid,
-            #     Skills=skills,
-            #     Work_Experience=workExperience,
-            # )
-            updateseekerinfo.save()
-            updateuserinfo.save()
-        return redirect('profile')
         
     
     return render(request,'editprofile.html')
@@ -284,3 +252,7 @@ def basicinfo(request):
 def contactinfo(request):
     
     return render(request,'contact.html')
+@login_required
+def changePasswordPage(request):
+    
+    return render(request,'changepasswordpage.html')

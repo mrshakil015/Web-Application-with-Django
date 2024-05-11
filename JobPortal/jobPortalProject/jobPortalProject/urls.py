@@ -16,6 +16,7 @@ urlpatterns = [
     path('editprofilePage/',editprofilePage,name="editprofilePage"),
     path('basicinfo/',basicinfo,name="basicinfo"),
     path('contactinfo/',contactinfo,name="contactinfo"),
+    path('changePasswordPage/',changePasswordPage,name="changePasswordPage"),
     
     path('AddJob/',AddJob,name="AddJob"),
     path('editjob/<str:editid>',editjob,name="editjob"),

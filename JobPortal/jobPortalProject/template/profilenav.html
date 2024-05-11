@@ -10,6 +10,7 @@
         <a href="{% url 'editprofilePage' %}" class="button">Edit</a>
         <a href="{% url 'basicinfo' %}" class="button button2">Basic Info</a>
         <a href="{% url 'contactinfo' %}" class="button button2">Contact</a>
+        <a href="{% url 'changePasswordPage' %}" class="button button">Change Password</a>
         
         {% if user.UserType == 'Recuriter' %}
         <a href="{% url 'JobList' %}" class="button button2">Posted Job</a>
