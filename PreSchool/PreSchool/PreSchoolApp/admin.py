@@ -10,8 +10,13 @@ class customeUserDisplay(admin.ModelAdmin):
     fieldsets = [
         (
             "Users",
-            {"fields":["username","email","UserType","ProfilePic"]}
+            {"fields":["username","email","UserType","password","ProfilePic"]}
         )
     ]
     
 admin.site.register(customeUser,customeUserDisplay)
+
+class DisplayStudent(admin.ModelAdmin):
+    list_display = ['FullName','Username']    
+    
+admin.site.register(StudentModel,DisplayStudent)

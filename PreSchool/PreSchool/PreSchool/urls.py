@@ -6,6 +6,9 @@ from PreSchool.studentviews import *
 from PreSchool.departmentviews import *
 from PreSchool.subjectviews import *
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('signupPage/',signupPage,name="signupPage"),
@@ -27,7 +30,8 @@ urlpatterns = [
     path('addStudent/',addStudent,name="addStudent"),
     path('editStudent/',editStudent,name="editStudent"),
     path('studentList/',studentList,name="studentList"),
-    path('studentDetails/',studentDetails,name="studentDetails"),
+    path('studentDetails/<str:myid>',studentDetails,name="studentDetails"),
+    path('deleteStudent/<str:myid>',deleteStudent,name="deleteStudent"),
     
     #--------Department Route--------------
     path('addDepartment/',addDepartment,name="addDepartment"),
@@ -40,4 +44,4 @@ urlpatterns = [
     path('subjectList/',subjectList,name="subjectList"),
     
     
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

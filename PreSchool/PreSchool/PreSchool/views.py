@@ -29,8 +29,18 @@ def signinPage(request):
         
         user = authenticate(username=username,password=password)
         if user:
-            login(request,user)
-            return redirect('adminDashboard')
+            print("User type: ",user.UserType)
+            if user.UserType == '1':
+                login(request,user)
+                return redirect('adminDashboard')
+            
+            elif user.UserType == '2':
+                login(request,user)
+                return redirect('studentDashboard')
+            
+            elif user.UserType == '3':
+                login(request,user)
+                return redirect('studentDashboard')
     
     return render(request,'commons/signin.html')
 
