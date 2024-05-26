@@ -9,7 +9,8 @@ from PreSchool.subjectviews import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('signupPage/',signupPage,name="signupPage"),
-    path('signinPage/',signinPage,name="signinPage"),
+    path('',signinPage,name="signinPage"),
+    path('logoutPage/',logoutPage,name="logoutPage"),
     
     #--------Teacher Route--------------
     path('teacherDashboard/',teacherDashboard,name="teacherDashboard"),
