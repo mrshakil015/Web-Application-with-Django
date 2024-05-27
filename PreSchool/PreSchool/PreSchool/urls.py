@@ -35,8 +35,11 @@ urlpatterns = [
     
     #--------Department Route--------------
     path('addDepartment/',addDepartment,name="addDepartment"),
-    path('editDepartment/',editDepartment,name="editDepartment"),
+    path('editDepartment/<str:myid>',editDepartment,name="editDepartment"),
+    path('viewDepartment/<str:myid>',viewDepartment,name="viewDepartment"),
     path('departmentList/',departmentList,name="departmentList"),
+    path('updateDepartment/',updateDepartment,name="updateDepartment"),
+    path('deleteDepartment/<str:myid>',deleteDepartment,name="deleteDepartment"),
     
     #--------Subject Route--------------
     path('addSubject/',addSubject,name="addSubject"),
