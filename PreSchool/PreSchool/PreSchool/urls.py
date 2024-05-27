@@ -28,7 +28,7 @@ urlpatterns = [
     #--------Students Route--------------
     path('studentDashboard/',studentDashboard,name="studentDashboard"),
     path('addStudent/',addStudent,name="addStudent"),
-    path('editStudent/',editStudent,name="editStudent"),
+    path('editStudent/<str:myid>',editStudent,name="editStudent"),
     path('studentList/',studentList,name="studentList"),
     path('studentDetails/<str:myid>',studentDetails,name="studentDetails"),
     path('deleteStudent/<str:myid>',deleteStudent,name="deleteStudent"),

@@ -18,157 +18,166 @@
        <div class="col-sm-12">
           <div class="card">
              <div class="card-body">
-                <form>
+               <form action="{% url 'editStudent' studentinfo.id %}" method="POST" enctype="multipart/form-data">
+                  {% csrf_token %}
                    <div class="row">
                       <div class="col-12">
                          <h5 class="form-title"><span>Student Information</span></h5>
                       </div>
                       <div class="col-12 col-sm-6">
                          <div class="form-group">
-                            <label>First Name</label>
-                            <input type="text" class="form-control" value="Nathan Humphries">
+                            <label>Full Name</label>
+                            <input type="text" name="fullname" value="{{studentinfo.FullName}}" class="form-control">
                          </div>
                       </div>
                       <div class="col-12 col-sm-6">
                          <div class="form-group">
-                            <label>Last Name</label>
-                            <input type="text" class="form-control" value="Stephen Marley">
+                            <label>Username</label>
+                            <input type="text" name="username" value="{{studentinfo.user}}" class="form-control" readonly>
                          </div>
                       </div>
                       <div class="col-12 col-sm-6">
                          <div class="form-group">
                             <label>Student Id</label>
-                            <input type="text" class="form-control" value="PRE1234">
+                            <input type="text" name="studentid" value="{{studentinfo.StudentID}}" class="form-control">
                          </div>
                       </div>
                       <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Gender</label>
-                            <select class="form-control">
-                               <option>Female</option>
-                               <option>Select Gender</option>
-                               <option>Male</option>
-                               <option>Others</option>
-                            </select>
-                         </div>
-                      </div>
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
+                        <div class="form-group">
+                           <label>Gender</label>
+                           <select name="gender" class="form-control">
+                              <option>Select Gender</option>
+                              <option value="female" {% if studentinfo.Gender == 'female' %} selected {% endif %}>Female</option>
+                              <option value="male" {% if studentinfo.Gender == 'male' %} selected {% endif %}>Male</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
                             <label>Date of Birth</label>
                             <div>
-                               <input type="text" class="form-control" value="26 Apr 1994">
+                                <input type="date" name="dateofbirth" value="{{ date_of_birth }}" class="form-control">
                             </div>
-                         </div>
-                      </div>
+                        </div>
+                    </div>
+                    
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Religion</label>
+                           <input type="text" name="religion" value="{{studentinfo.Religion}}" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Mobile Number</label>
+                           <input type="text" name="mobile" value="{{studentinfo.Mobile}}" class="form-control">
+                        </div>
+                     </div>
                       <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Class</label>
-                            <input type="text" class="form-control" value="10">
-                         </div>
-                      </div>
+                        <div class="form-group">
+                           <label>Email</label>
+                           <input type="email" name="email" value="{{studentinfo.user.email}}" class="form-control">
+                        </div>
+                     </div>
+                     
+                      
+                      
+                      
                       <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Religion</label>
-                            <input type="text" class="form-control" value="Religion">
-                         </div>
-                      </div>
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Joining Date</label>
-                            <div>
-                               <input type="text" class="form-control" value="4 Jan 2002">
-                            </div>
-                         </div>
-                      </div>
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Mobile Number</label>
-                            <input type="text" class="form-control" value="077 3499 9959">
-                         </div>
-                      </div>
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Admission Number</label>
-                            <input type="text" class="form-control" value="PRE1252">
-                         </div>
-                      </div>
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Section</label>
-                            <input type="text" class="form-control" value="B">
-                         </div>
-                      </div>
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Student Image</label>
-                            <input type="file" class="form-control">
-                         </div>
-                      </div>
+                        <div class="form-group">
+                           <label>Present Address</label>
+                           <textarea name="presentaddress"  class="form-control">{{studentinfo.PresentAddress}}</textarea>
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Permanent Address</label>
+                           <textarea name="permanentaddress" class="form-control">{{studentinfo.PermanentAddress}}</textarea>
+                        </div>
+                     </div>
+
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Student Image</label>
+                           <input type="file" name="studentImage" class="form-control">
+                        </div>
+                     </div>
+
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Department</label>
+                           <select name="department" class="form-control">
+                              {% for i in departmentdata %}
+                                 <option value="{{ i.id }}" {% if studentinfo.Department == i.id %} selected {% endif %}>
+                                    {{ i.id }} - {{ i.department_name }}
+                                 </option>
+                              {% endfor %}
+                          
+                          </select>
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                       <div class="form-group">
+                          <label>Section</label>
+                          <input type="text" name="section" value="{{studentinfo.Section}}" class="form-control">
+                       </div>
+                    </div>
+                     <div class="col-12 col-sm-6">
+                       <div class="form-group">
+                          <label>Start Session</label>
+                          <input type="text" name="startsession" value="{{studentinfo.StartSession}}" class="form-control">
+                       </div>
+                    </div>
+                     <div class="col-12 col-sm-6">
+                       <div class="form-group">
+                          <label>End Session</label>
+                          <input type="text" name="endsession" value="{{studentinfo.EndSession}}" class="form-control">
+                       </div>
+                    </div>
+
                       <div class="col-12">
                          <h5 class="form-title"><span>Parent Information</span></h5>
                       </div>
                       <div class="col-12 col-sm-6">
                          <div class="form-group">
                             <label>Father's Name</label>
-                            <input type="text" class="form-control" value="Stephen Marley">
+                            <input type="text" name="fathername" value="{{studentinfo.FatherName}}" class="form-control">
                          </div>
                       </div>
                       <div class="col-12 col-sm-6">
                          <div class="form-group">
                             <label>Father's Occupation</label>
-                            <input type="text" class="form-control" value="Technician">
+                            <input type="text" name="fatheroccupation" value="{{studentinfo.FatherOccupation}}" class="form-control">
                          </div>
                       </div>
                       <div class="col-12 col-sm-6">
                          <div class="form-group">
                             <label>Father's Mobile</label>
-                            <input type="text" class="form-control" value="	402 221 7523">
+                            <input type="text" name="fathermobile" value="{{studentinfo.FatherMobile}}" class="form-control">
                          </div>
                       </div>
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Father's Email</label>
-                            <input type="email" class="form-control" value="stephenmarley@gmail.com">
-                         </div>
-                      </div>
+                      
                       <div class="col-12 col-sm-6">
                          <div class="form-group">
                             <label>Mother's Name</label>
-                            <input type="text" class="form-control" value="Cleary Wong">
+                            <input type="text" name="mothername" value="{{studentinfo.MotherName}}" class="form-control">
                          </div>
                       </div>
                       <div class="col-12 col-sm-6">
                          <div class="form-group">
                             <label>Mother's Occupation</label>
-                            <input type="text" class="form-control" value="Home Maker">
+                            <input type="text" name="motheroccupation" value="{{studentinfo.MotherOccupation}}" class="form-control">
                          </div>
                       </div>
                       <div class="col-12 col-sm-6">
                          <div class="form-group">
                             <label>Mother's Mobile</label>
-                            <input type="text" class="form-control" value="026 7318 4366">
+                            <input type="text" name="mothermobile" value="{{studentinfo.MotherMobile}}" class="form-control">
                          </div>
                       </div>
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Mother's Email</label>
-                            <input type="email" class="form-control" value="clearywong@gmail.com">
-                         </div>
-                      </div>
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Present Address</label>
-                            <textarea class="form-control">86 Lamphey Road, Thelnetham</textarea>
-                         </div>
-                      </div>
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Permanent Address</label>
-                            <textarea class="form-control">86 Lamphey Road, Thelnetham</textarea>
-                         </div>
-                      </div>
+                      
                       <div class="col-12">
-                         <button type="submit" class="btn btn-primary">Submit</button>
+                         <button type="submit" value="{{studentinfo.}}" class="btn btn-primary">Submit</button>
                       </div>
                    </div>
                 </form>

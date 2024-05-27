@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from PreSchoolApp.models import *
 from django.contrib import messages
+from datetime import datetime
 
 
 #-----------Student Section--------------------
@@ -83,9 +84,77 @@ def addStudent(request):
         
     return render(request,'students/addstudent.html',context)
 
-def editStudent(request):
+def editStudent(request, myid):
+    studentinfo = StudentModel.objects.get(id=myid)
+    userdata = customeUser.objects.get(username=studentinfo.user)
+    departmentdata = DepartmentModel.objects.all()
     
-    return render(request,'students/editstudent.html')
+    date_of_birth = studentinfo.DateOB.isoformat() if studentinfo.DateOB else ''
+
+    stddict = {
+        'studentinfo': studentinfo,
+        'userdata': userdata,
+        'departmentdata': departmentdata,
+        'date_of_birth': date_of_birth,
+    }
+    
+    
+    if request.method == 'POST':
+        fullname= request.POST.get('fullname')
+        username= request.POST.get('username')
+        studentid= request.POST.get('studentid')
+        gender= request.POST.get('gender')
+        dateofbirth= request.POST.get('dateofbirth')
+        religion= request.POST.get('religion')
+        mobile= request.POST.get('mobile')
+        email= request.POST.get('email')
+        password= request.POST.get('password')
+        studentImage= request.FILES.get('studentImage')
+        presentaddress= request.POST.get('presentaddress')
+        permanentaddress= request.POST.get('permanentaddress')
+        
+        department= request.POST.get('department')
+        section= request.POST.get('section')
+        startsession= request.POST.get('startsession')
+        endsession= request.POST.get('endsession')
+        
+        fathername= request.POST.get('fathername')
+        fatheroccupation= request.POST.get('fatheroccupation')
+        fathermobile= request.POST.get('fathermobile')
+        
+        mothername= request.POST.get('mothername')
+        motheroccupation= request.POST.get('motheroccupation')
+        mothermobile= request.POST.get('mothermobile')
+        
+        StudentModel.objects.filter(id=myid).update(
+            FullName = fullname,
+            StudentID=studentid,
+            Gender=gender,
+            DateOB=dateofbirth,
+            Religion=religion,
+            Mobile=mobile,
+            StudentImage=studentImage,
+            PresentAddress=presentaddress,
+            PermanentAddress=permanentaddress,
+            
+            Department=department,
+            StartSession=startsession,
+            EndSession=endsession,
+            Section=section,
+            
+            FatherName=fathername,
+            FatherOccupation=fatheroccupation,
+            FatherMobile=fathermobile,
+            
+            MotherName=mothername,
+            MotherOccupation=motheroccupation,
+            MotherMobile=mothermobile,
+        )
+        messages.success(request,'Successfully Updated.')
+        return redirect('studentList') 
+    
+    return render(request, 'students/editstudent.html', stddict)
+
 
 def studentList(request):
     studentinfo = StudentModel.objects.all()
@@ -101,7 +170,8 @@ def studentList(request):
 def studentDetails(request,myid):
     studentinfo = StudentModel.objects.get(id=myid)
     userdata=customeUser.objects.get(username=studentinfo.user)
-    departmentdata = DepartmentModel.objects.all()
+    
+    departmentdata = DepartmentModel.objects.get(id=studentinfo.Department)
     
     stddict = {
         'studentinfo':studentinfo,
