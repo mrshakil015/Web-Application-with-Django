@@ -19,7 +19,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{% url 'updateDepartment' %}" method="POST">
+                    <form action="{% url 'editDepartment' departmentdata.id %}" method="POST">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-12">

@@ -29,11 +29,8 @@ def editDepartment(request,myid):
     
     contex = {
         'departmentdata':departmentdata,
-    } 
+    }
     
-    return render(request,'department/editdepartment.html',contex)
-
-def updateDepartment(request):
     if request.method == 'POST':
         deptid = request.POST.get('deptid')
         deptName = request.POST.get('deptName')
@@ -45,6 +42,8 @@ def updateDepartment(request):
         )
         messages.success(request,'Department Successfully Updated.')
         return redirect('departmentList')
+    
+    return render(request,'department/editdepartment.html',contex)
 
 def deleteDepartment(request,myid):
     departmentdata= DepartmentModel.objects.get(id=myid)
