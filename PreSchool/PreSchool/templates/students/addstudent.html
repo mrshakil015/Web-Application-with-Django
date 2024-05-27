@@ -16,6 +16,7 @@
     <div class="row">
        <div class="col-sm-12">
           <div class="card">
+            {% include 'commons/message.html' %}
              <div class="card-body">
                 <form action="{% url 'addStudent' %}" method="POST" enctype="multipart/form-data">
                   {% csrf_token %}
@@ -43,80 +44,97 @@
                       </div>
                       <div class="col-12 col-sm-6">
                         <div class="form-group">
+                           <label>Gender</label>
+                           <select name="gender" class="form-control">
+                              <option>Select Gender</option>
+                              <option value="female">Female</option>
+                              <option value="male">Male</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Date of Birth</label>
+                           <div>
+                              <input type="date" name="dateofbirth" class="form-control">
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Religion</label>
+                           <input type="text" name="religion" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Mobile Number</label>
+                           <input type="text" name="mobile" class="form-control">
+                        </div>
+                     </div>
+                      <div class="col-12 col-sm-6">
+                        <div class="form-group">
                            <label>Email</label>
                            <input type="email" name="email" class="form-control">
                         </div>
                      </div>
                       <div class="col-12 col-sm-6">
                          <div class="form-group">
-                            <label>Gender</label>
-                            <select name="gender" class="form-control">
-                               <option>Select Gender</option>
-                               <option>Female</option>
-                               <option>Male</option>
-                               <option>Others</option>
-                            </select>
-                         </div>
-                      </div>
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Date of Birth</label>
-                            <div>
-                               <input type="date" name="dateofbirth" class="form-control">
-                            </div>
-                         </div>
-                      </div>
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Department</label>
-                            <input type="text" name="department" class="form-control">
-                         </div>
-                      </div>
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Religion</label>
-                            <input type="text" name="religion" class="form-control">
-                         </div>
-                      </div>
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Joining Date</label>
-                            <div>
-                               <input type="date" name="joiningdate" class="form-control">
-                            </div>
-                         </div>
-                      </div>
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Mobile Number</label>
-                            <input type="text" name="mobile" class="form-control">
-                         </div>
-                      </div>
-                      
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
                             <label>Password</label>
                             <input type="password" name="password" class="form-control">
                          </div>
                       </div>
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Confirm Password</label>
-                            <input type="password" name="confirmpassword" class="form-control">
-                         </div>
-                      </div>
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Section</label>
-                            <input type="text" name="section" class="form-control">
-                         </div>
-                      </div>
+                      
+                      
                       <div class="col-12 col-sm-6">
                          <div class="form-group">
                             <label>Student Image</label>
                             <input type="file" name="studentImage" class="form-control">
                          </div>
                       </div>
+                      <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Present Address</label>
+                           <textarea name="presentaddress" class="form-control"></textarea>
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Permanent Address</label>
+                           <textarea name="permanentaddress" class="form-control"></textarea>
+                        </div>
+                     </div>
+
+                     <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                           <label>Department</label>
+                           <select name="department" class="form-control">
+                             <option>Select Department</option>
+                             {% for i in departmentdata %}
+                             <option value="{{i.id}}">{{i.id}}-{{i.department_name}}</option>
+                             {% endfor %} 
+                          </select>
+                        </div>
+                     </div>
+                     <div class="col-12 col-sm-6">
+                       <div class="form-group">
+                          <label>Section</label>
+                          <input type="text" name="section" class="form-control">
+                       </div>
+                    </div>
+                     <div class="col-12 col-sm-6">
+                       <div class="form-group">
+                          <label>Start Session</label>
+                          <input type="text" name="startsession" class="form-control">
+                       </div>
+                    </div>
+                     <div class="col-12 col-sm-6">
+                       <div class="form-group">
+                          <label>End Session</label>
+                          <input type="text" name="endsession" class="form-control">
+                       </div>
+                    </div>
+
                       <div class="col-12">
                          <h5 class="form-title"><span>Parent Information</span></h5>
                       </div>
@@ -138,12 +156,7 @@
                             <input type="text" name="fathermobile" class="form-control">
                          </div>
                       </div>
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Father's Email</label>
-                            <input type="email" name="fatheremail" class="form-control">
-                         </div>
-                      </div>
+                      
                       <div class="col-12 col-sm-6">
                          <div class="form-group">
                             <label>Mother's Name</label>
@@ -162,24 +175,7 @@
                             <input type="text" name="mothermobile" class="form-control">
                          </div>
                       </div>
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Mother's Email</label>
-                            <input type="email" name="motheremail" class="form-control">
-                         </div>
-                      </div>
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Present Address</label>
-                            <textarea name="presentaddress" class="form-control"></textarea>
-                         </div>
-                      </div>
-                      <div class="col-12 col-sm-6">
-                         <div class="form-group">
-                            <label>Permanent Address</label>
-                            <textarea name="permanentaddress" class="form-control"></textarea>
-                         </div>
-                      </div>
+                      
                       <div class="col-12">
                          <button type="submit" class="btn btn-primary">Submit</button>
                       </div>
