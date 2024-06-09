@@ -1,0 +1,42 @@
+{% extends 'master/master.html' %}
+
+{% block content %}
+<form action="{% url 'addPersonalInfo' %}" method="POST">
+    {% csrf_token %}
+    <div class="container">
+      <h1>Add Personal Information</h1>
+      <hr>
+      <label for="username"><b>User Name</b></label>
+      <input type="text" placeholder="Enter User Name" value="{{userData.username}}" name="username" readonly>
+      
+
+      <label for="fullname"><b>Full Name</b></label>
+      <input type="text" placeholder="Enter Full Name" value="{{userData.Name}}"  name="fullname" required>
+      
+      <label for="fullname"><b>Age</b></label>
+      <input type="text" placeholder="Enter Age" value="{{userData.Age}}"  name="age" required>
+      
+      <label for="gender"><b>Gender</b></label><br>
+      <select  name="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+
+      <label for="fullname"><b>Height</b></label>
+      <input type="text" placeholder="Enter Height" value="{{userData.Height}}"  name="height" required>
+      
+      <label for="fullname"><b>Weight</b></label>
+      <input type="text" placeholder="Enter Weight" value="{{userData.Weight}}"  name="weight" required>
+      
+
+
+      <div class="clearfix">
+        
+        <button type="submit" style="width: 100%;" class="signupbtn">Update Data</button>
+      </div>
+     
+    </div>
+  </form>
+    
+{% endblock content %}
+    

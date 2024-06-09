@@ -1,0 +1,23 @@
+{% extends 'master/master.html' %}
+
+{% block content %}
+<form action="{% url 'calroyCounter' %}" method="POST">
+    {% csrf_token %}
+    <div class="container">
+      <h1>Calory Count</h1>
+      <hr>
+      <label for="username"><b>Item Name</b></label>
+      <input type="text" placeholder="Enter Item name"  name="itemname" required>
+      
+      <label for="username"><b>Item Calories</b></label>
+      <input type="text" placeholder="Enter Item Calories"  name="itemcalories" required>
+      <div class="clearfix">
+        
+        <button type="submit" style="width: 100%;" class="signupbtn">Calculate Calories</button>
+      </div>
+     
+    </div>
+  </form>
+    
+{% endblock content %}
+    
