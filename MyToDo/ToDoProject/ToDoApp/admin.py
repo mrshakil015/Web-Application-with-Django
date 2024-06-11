@@ -16,5 +16,8 @@ class CustomUserDisplay(admin.ModelAdmin):
     ]
 
 admin.site.register(CustomToDoUserModel,CustomUserDisplay)
-admin.site.register(CategoryModel)
+
+class categoryDisplay(admin.ModelAdmin):
+    list_display = ['CategoryName','user']
+admin.site.register(CategoryModel,categoryDisplay)
 admin.site.register(TaskModel)

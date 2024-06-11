@@ -48,3 +48,25 @@ def logoutPage(request):
     logout(request)
     
     return redirect('signinPage')
+
+def addCategory(request):
+    if request.method == 'POST':
+        current_user = request.user
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            category = form.save(commit=False)
+            category.user = current_user
+            category.save()
+            return redirect('categoryList')
+    else:
+        form = CategoryForm()
+    context = {
+        'form':form
+    }
+    
+    return render(request,'addcategory.html',context)
+
+def categoryList(request):
+    categorydata = CategoryModel.objects.all()
+    
+    return render(request,'categorylist.html',{'categorydata':categorydata})
